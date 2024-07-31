@@ -25,7 +25,9 @@ export class DetailsComponent {
   });
   constructor(){
     const housingLocationId = Number(this.router.snapshot.params['id'])
-    this.housingLocation = this.housingSerive.getHousingLocationById(housingLocationId);
+    this.housingSerive.getHousingLocationById(housingLocationId).then(housingLoacation =>{
+      this.housingLocation = housingLoacation;
+    });   
   }
 
   submitApplication(){
